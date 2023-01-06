@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="button_component_radius">8dp</dimen>
+    <dimen name="button_component_border_width">2dp</dimen>
+
+    <dimen name="button_component_small_size_dimensions">32dp</dimen>
+    <dimen name="button_component_small_size_icon">16dp</dimen>
+    <dimen name="button_component_small_size_text">14dp</dimen>
+    <dimen name="button_component_small_padding_horizontal">16dp</dimen>
+    <dimen name="button_component_small_padding_vertical">8dp</dimen>
+
+    <dimen name="button_component_medium_size_dimensions">40dp</dimen>
+    <dimen name="button_component_medium_size_icon">20dp</dimen>
+    <dimen name="button_component_medium_size_text">16dp</dimen>
+    <dimen name="button_component_medium_size_padding_vertical">12dp</dimen>
+    <dimen name="button_component_medium_size_padding_horizontal">24dp</dimen>
+
+    <dimen name="button_component_large_size_dimensions">56dp</dimen>
+    <dimen name="button_component_large_size_icon">24dp</dimen>
+    <dimen name="button_component_large_size_text">20dp</dimen>
+    <dimen name="button_component_large_size_padding_vertical">16dp</dimen>
+    <dimen name="button_component_large_size_padding_horizontal">24dp</dimen>
+
+</resources>

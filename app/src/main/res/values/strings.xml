@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Magic Life Counter</string>
+    <string name="button_component_text">PLACEHOLDER</string>
 </resources>
