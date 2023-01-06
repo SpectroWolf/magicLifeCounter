@@ -60,7 +60,7 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
         attrsTypedArray?.getInt(R.styleable.ButtonComponent_size, SIZE_DEFAULT_INDEX)?.let {
             size = ButtonComponentSize.values()[it]
         }
-        attrsTypedArray?.getInt(R.styleable.ButtonComponent_ydButtonType, TYPE_DEFAULT_INDEX)?.let {
+        attrsTypedArray?.getInt(R.styleable.ButtonComponent_buttonType, TYPE_DEFAULT_INDEX)?.let {
             type = ButtonComponentType.values()[it]
         }
         attrsTypedArray?.getInt(R.styleable.ButtonComponent_state, STATE_DEFAULT_INDEX)?.let {
@@ -264,223 +264,97 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
             ButtonComponentType.PRIMARY -> {
                 setTypePrimary(state, textColor)
             }
-            ButtonComponentType.SECONDARY -> {
-                setTypeSecondary(state, textColor)
+            ButtonComponentType.OUTLINED -> {
+                setTypeOutilined(state, textColor)
             }
-            ButtonComponentType.TERTIARY -> {
-                setTypeTertiary(state, textColor)
-            }
-            ButtonComponentType.TRANSPARENT -> {
-                setTypeTransparent(state, textColor)
-            }
+
         }
     }
 
-//    private fun setTypePrimary(state: ButtonComponentState, textColor: Int?) {
-//        val backgroundColor: Int
-//        val textColorId: Int
-//        val drawableBackgroundId: Int
-//        goneLoadingState()
-//        when (state) {
-//            ButtonComponentState.DEFAULT_ENABLED -> {
-//                backgroundColor = R.color.colorBranding
-//                textColorId = textColor ?: R.color.white
-//                drawableBackgroundId = R.drawable.background_button_component_primary_button_enabled
-//                isEnabled = true
-//            }
-//            ButtonComponentState.PRESSED -> {
-//                backgroundColor = R.color.colorBrandingDark20
-//                textColorId = textColor ?: R.color.white
-//                drawableBackgroundId = R.drawable.background_button_component_primary_button_pressed
-//                isEnabled = false
-//            }
-//            ButtonComponentState.DISABLED -> {
-//                backgroundColor = R.color.colorBrandingLight50
-//                textColorId = textColor ?: R.color.colorBrandingLight30
-//                drawableBackgroundId =
-//                    R.drawable.background_button_component_primary_button_disabled
-//
-//                isEnabled = false
-//            }
-//            ButtonComponentState.LOADING -> {
-//                backgroundColor = R.color.colorBranding
-//                textColorId = textColor ?: R.color.white
-//                setLoadingState(R.raw.lottie_loading_primary)
-//                drawableBackgroundId = R.drawable.background_button_component_primary_button_loading
-//
-//                isEnabled = false
-//            }
-//        }
-//
-//        setProperties(
-//            backgroundColorId = backgroundColor,
-//            textColorId = textColorId,
-//            backgroundDrawableId = drawableBackgroundId
-//        )
-//    }
+    private fun setTypePrimary(state: ButtonComponentState, textColor: Int?) {
+        val backgroundColor: Int
+        val textColorId: Int
+        val drawableBackgroundId: Int
+        goneLoadingState()
+        when (state) {
+            ButtonComponentState.DEFAULT_ENABLED -> {
+                backgroundColor = R.color.yellow
+                textColorId = textColor ?: R.color.black
+                drawableBackgroundId = R.drawable.background_button_component_primary_button_enabled
+                isEnabled = true
+            }
+            ButtonComponentState.PRESSED -> {
+                backgroundColor = R.color.yellow
+                textColorId = textColor ?: R.color.black
+                drawableBackgroundId = R.drawable.background_button_component_primary_button_enabled
+                isEnabled = false
+            }
+            ButtonComponentState.DISABLED -> {
+                backgroundColor = R.color.gray_2
+                textColorId = textColor ?: R.color.gray_3
+                drawableBackgroundId =
+                    R.drawable.background_button_component_primary_button_disabled
 
-//    private fun setTypeSecondary(state: ButtonComponentState, textColor: Int?) {
-//
-//        val backgroundColor: Int
-//        val textColorId: Int
-//        val drawableBackgroundId: Int
-//        goneLoadingState()
-//        when (state) {
-//            ButtonComponentState.DEFAULT_ENABLED -> {
-//                backgroundColor = R.color.white
-//                textColorId = textColor ?: R.color.colorBranding
-//                drawableBackgroundId = R.drawable.background_white_button_outline_red
-//                isEnabled = true
-//            }
-//            ButtonComponentState.PRESSED -> {
-//                backgroundColor = R.color.grayLight80
-//                textColorId = textColor ?: R.color.colorBrandingDark20
-//                drawableBackgroundId = R.drawable.background_button_component_secondary_pressed
-//                isEnabled = false
-//            }
-//            ButtonComponentState.DISABLED -> {
-//                backgroundColor = R.color.white
-//                textColorId = textColor ?: R.color.colorBrandingLight30
-//                drawableBackgroundId = R.drawable.background_button_component_secondary_disabled
-//                isEnabled = false
-//            }
-//            ButtonComponentState.LOADING -> {
-//                backgroundColor = R.color.white
-//                textColorId = textColor ?: R.color.white
-//                drawableBackgroundId = R.drawable.background_white_button_outline_red
-//                setLoadingState(R.raw.lottie_loading_secondary)
-//                isEnabled = false
-//            }
-//        }
-//
-//        setProperties(
-//            backgroundColorId = backgroundColor,
-//            textColorId = textColorId,
-//            backgroundDrawableId = drawableBackgroundId
-//        )
-//    }
-//
-//    private fun setTypeTertiary(state: ButtonComponentState, textColor: Int?) {
-//
-//        val backgroundColor: Int
-//        val textColorId: Int
-//        val drawableBackgroundId: Int
-//        goneLoadingState()
-//        when (state) {
-//            ButtonComponentState.DEFAULT_ENABLED -> {
-//                backgroundColor = R.color.grayDark20
-//                textColorId = textColor ?: R.color.grayDark20
-//                drawableBackgroundId = R.drawable.background_button_component_tertiary
-//                isEnabled = true
-//            }
-//            ButtonComponentState.PRESSED -> {
-//                backgroundColor = R.color.grayLight80
-//                textColorId = textColor ?: R.color.grayDark50
-//                drawableBackgroundId = R.drawable.background_button_component_tertiary_pressed
-//                isEnabled = false
-//            }
-//            ButtonComponentState.DISABLED -> {
-//                backgroundColor = R.color.white
-//                textColorId = textColor ?: R.color.grayLight20
-//                drawableBackgroundId = R.drawable.background_button_component_tertiary_disabled
-//                isEnabled = false
-//            }
-//            ButtonComponentState.LOADING -> {
-//                backgroundColor = R.color.grayDark20
-//                textColorId = textColor ?: R.color.grayDark20
-//                drawableBackgroundId = R.drawable.background_button_component_tertiary
-//                setLoadingState(R.raw.lottie_loading_terttiary)
-//                isEnabled = false
-//            }
-//        }
-//
-//        setProperties(
-//            backgroundColorId = backgroundColor,
-//            textColorId = textColorId,
-//            backgroundDrawableId = drawableBackgroundId
-//        )
-//    }
-//
-//    private fun setTypeTransparent(state: ButtonComponentState, textColor: Int?) {
-//
-//        val backgroundColor: Int
-//        val textColorId: Int
-//        val drawableBackgroundId: Int?
-//        goneLoadingState()
-//        when (state) {
-//            ButtonComponentState.DEFAULT_ENABLED -> {
-//                backgroundColor = R.color.transparent
-//                textColorId = textColor ?: R.color.colorBranding
-//                drawableBackgroundId = null
-//                isEnabled = true
-//            }
-//            ButtonComponentState.PRESSED -> {
-//                backgroundColor = R.color.grayLight60
-//                textColorId = textColor ?: R.color.colorBrandingDark20
-//                drawableBackgroundId = null
-//                isEnabled = false
-//            }
-//            ButtonComponentState.DISABLED -> {
-//                backgroundColor = R.color.transparent
-//                textColorId = textColor ?: R.color.grayLight60
-//                drawableBackgroundId = null
-//                isEnabled = false
-//            }
-//            ButtonComponentState.LOADING -> {
-//                backgroundColor = R.color.transparent
-//                textColorId = textColor ?: R.color.colorBranding
-//                drawableBackgroundId = null
-//                setLoadingState(R.raw.lottie_loading_transparent)
-//                isEnabled = false
-//            }
-//        }
-//
-//        setProperties(
-//            backgroundColorId = backgroundColor,
-//            textColorId = textColorId,
-//            backgroundDrawableId = drawableBackgroundId
-//        )
-//    }
-//
-//    private fun setTypeDanger(state: ButtonComponentState, textColor: Int?) {
-//        val backgroundColor: Int
-//        val textColorId: Int
-//        val drawableBackgroundId: Int?
-//        goneLoadingState()
-//        when (state) {
-//            ButtonComponentState.DEFAULT_ENABLED -> {
-//                backgroundColor = R.color.colorBrandingAlert
-//                textColorId = textColor ?: R.color.white
-//                drawableBackgroundId = null
-//                isEnabled = true
-//            }
-//            ButtonComponentState.PRESSED -> {
-//                backgroundColor = R.color.colorBrandingDark20
-//                textColorId = textColor ?: R.color.white
-//                drawableBackgroundId = null
-//                isEnabled = false
-//            }
-//            ButtonComponentState.DISABLED -> {
-//                backgroundColor = R.color.colorAlertLight50
-//                textColorId = textColor ?: R.color.colorAlertLight30
-//                drawableBackgroundId = null
-//                isEnabled = false
-//            }
-//            ButtonComponentState.LOADING -> {
-//                backgroundColor = R.color.colorBrandingAlert
-//                textColorId = textColor ?: R.color.white
-//                drawableBackgroundId = null
-//                setLoadingState(R.raw.lottie_loading_danger)
-//                isEnabled = false
-//            }
-//        }
-//
-//        setProperties(
-//            backgroundColorId = backgroundColor,
-//            textColorId = textColorId,
-//            backgroundDrawableId = drawableBackgroundId
-//        )
-//    }
+                isEnabled = false
+            }
+            ButtonComponentState.LOADING -> {
+                backgroundColor = R.color.yellow
+                textColorId = textColor ?: R.color.black
+                setLoadingState(R.raw.lottie_loading_primary)
+                drawableBackgroundId = R.drawable.background_button_component_primary_button_enabled
+
+                isEnabled = false
+            }
+        }
+
+        setProperties(
+            backgroundColorId = backgroundColor,
+            textColorId = textColorId,
+            backgroundDrawableId = drawableBackgroundId
+        )
+    }
+
+    private fun setTypeOutilined(state: ButtonComponentState, textColor: Int?) {
+
+        val backgroundColor: Int
+        val textColorId: Int
+        val drawableBackgroundId: Int
+        goneLoadingState()
+        when (state) {
+            ButtonComponentState.DEFAULT_ENABLED -> {
+                backgroundColor = R.color.black
+                textColorId = textColor ?: R.color.white
+                drawableBackgroundId = R.drawable.background_button_component_outilined_button_enabled
+                isEnabled = true
+            }
+            ButtonComponentState.PRESSED -> {
+                backgroundColor = R.color.grayLight80
+                textColorId = textColor ?: R.color.colorBrandingDark20
+                drawableBackgroundId = R.drawable.background_button_component_secondary_pressed
+                isEnabled = false
+            }
+            ButtonComponentState.DISABLED -> {
+                backgroundColor = R.color.white
+                textColorId = textColor ?: R.color.colorBrandingLight30
+                drawableBackgroundId = R.drawable.background_button_component_secondary_disabled
+                isEnabled = false
+            }
+            ButtonComponentState.LOADING -> {
+                backgroundColor = R.color.white
+                textColorId = textColor ?: R.color.white
+                drawableBackgroundId = R.drawable.background_white_button_outline_red
+                setLoadingState(R.raw.lottie_loading_secondary)
+                isEnabled = false
+            }
+        }
+
+        setProperties(
+            backgroundColorId = backgroundColor,
+            textColorId = textColorId,
+            backgroundDrawableId = drawableBackgroundId
+        )
+    }
+
 
     private fun setLabelPosition(
         labelPosition: ButtonComponentLabelPosition,
@@ -489,7 +363,6 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
         this.labelPosition = labelPosition
 
         if (state == ButtonComponentState.LOADING) {
-            // loading state doesn't allows label or icon
             return
         }
 

@@ -7,7 +7,7 @@
             <enum name="medium" value="1"/>
             <enum name="large" value="2"/>
         </attr>
-        <attr name="ydButtonType" format="enum">
+        <attr name="buttonType" format="enum">
             <enum name="primary" value="0"/>
             <enum name="secondary" value="1"/>
             <enum name="tertiary" value="2"/>
