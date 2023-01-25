@@ -102,6 +102,7 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
         )
     }
 
+    //TODO POSSIBILIDADE DE FAZER UM BUILDER
     fun setButtonProperties(
         size: ButtonComponentSize = this.size,
         type: ButtonComponentType = this.type,
@@ -265,7 +266,7 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
                 setTypePrimary(state, textColor)
             }
             ButtonComponentType.OUTLINED -> {
-                setTypeOutilined(state, textColor)
+                setTypeOutlined(state, textColor)
             }
 
         }
@@ -314,7 +315,7 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
         )
     }
 
-    private fun setTypeOutilined(state: ButtonComponentState, textColor: Int?) {
+    private fun setTypeOutlined(state: ButtonComponentState, textColor: Int?) {
 
         val backgroundColor: Int
         val textColorId: Int
@@ -323,26 +324,26 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
         when (state) {
             ButtonComponentState.DEFAULT_ENABLED -> {
                 backgroundColor = R.color.black
-                textColorId = textColor ?: R.color.white
+                textColorId = textColor ?: R.color.white_default
                 drawableBackgroundId = R.drawable.background_button_component_outilined_button_enabled
                 isEnabled = true
             }
             ButtonComponentState.PRESSED -> {
-                backgroundColor = R.color.grayLight80
-                textColorId = textColor ?: R.color.colorBrandingDark20
-                drawableBackgroundId = R.drawable.background_button_component_secondary_pressed
+                backgroundColor = R.color.black
+                textColorId = textColor ?: R.color.white_default
+                drawableBackgroundId = R.drawable.background_button_component_outilined_button_enabled
                 isEnabled = false
             }
             ButtonComponentState.DISABLED -> {
-                backgroundColor = R.color.white
-                textColorId = textColor ?: R.color.colorBrandingLight30
-                drawableBackgroundId = R.drawable.background_button_component_secondary_disabled
+                backgroundColor = R.color.gray_2
+                textColorId = textColor ?: R.color.gray_2
+                drawableBackgroundId = R.drawable.background_button_component_outilined_button_disabled
                 isEnabled = false
             }
             ButtonComponentState.LOADING -> {
-                backgroundColor = R.color.white
-                textColorId = textColor ?: R.color.white
-                drawableBackgroundId = R.drawable.background_white_button_outline_red
+                backgroundColor = R.color.black
+                textColorId = textColor ?: R.color.white_default
+                drawableBackgroundId = R.drawable.background_button_component_outilined_button_enabled
                 setLoadingState(R.raw.lottie_loading_secondary)
                 isEnabled = false
             }
