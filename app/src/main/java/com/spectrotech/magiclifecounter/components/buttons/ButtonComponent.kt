@@ -268,7 +268,6 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
             ButtonComponentType.OUTLINED -> {
                 setTypeOutlined(state, textColor)
             }
-
         }
     }
 
@@ -410,7 +409,7 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
             ButtonComponentSize.SMALL -> {
                 setWidthDimension(
                     binding.buttonView,
-                    R.dimen.button_component_small_size_dimensions
+                    R.dimen.button_component_medium_size_dimensions
                 )
             }
             ButtonComponentSize.MEDIUM -> {
@@ -422,7 +421,7 @@ class ButtonComponent(context: Context, attrs: AttributeSet?) : FrameLayout(cont
             ButtonComponentSize.LARGE -> {
                 setWidthDimension(
                     binding.buttonView,
-                    R.dimen.button_component_large_size_dimensions
+                    R.dimen.button_component_medium_size_dimensions
                 )
             }
         }

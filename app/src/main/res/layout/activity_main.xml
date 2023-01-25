@@ -4,19 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:context=".MainActivity">
 
     <com.spectrotech.magiclifecounter.components.buttons.ButtonComponent
+        android:id="@+id/buttonComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:buttonType="primary"
+        app:layout_constraintBottom_toTopOf="@+id/buttonComponent2"
         app:layout_constraintTop_toTopOf="parent"
         app:size="medium"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <com.spectrotech.magiclifecounter.components.buttons.ButtonComponent
+        android:id="@+id/buttonComponent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         app:buttonType="primary"
-        app:state="defaultEnabled" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonComponent3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonComponent"
+        app:size="medium"
+        app:state="disabled"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <com.spectrotech.magiclifecounter.components.buttons.ButtonComponent
+        android:id="@+id/buttonComponent3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:buttonType="outlined"
+        app:layout_constraintBottom_toTopOf="@+id/buttonComponent2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonComponent4"
+        app:size="medium"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <com.spectrotech.magiclifecounter.components.buttons.ButtonComponent
+        android:id="@+id/buttonComponent4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:buttonType="outlined"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonComponent3"
+        app:size="medium"
+        app:state="disabled"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
