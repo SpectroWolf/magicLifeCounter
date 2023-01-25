@@ -34,7 +34,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:backgroundTint="@color/black"
-                android:src="@drawable/ic_play" />
+                android:src="@drawable/ic_play_icon" />
 
             <TextView
                 android:id="@+id/text"
@@ -62,7 +62,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:backgroundTint="@color/black"
-                android:src="@drawable/ic_play" />
+                android:src="@drawable/ic_play_icon" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animationView"
