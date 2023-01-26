@@ -31,4 +31,11 @@
         <attr name="isFontBold" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="MenuComponent">
+        <attr name="menuType" format="enum">
+            <enum name="open" value="0"/>
+            <enum name="close" value="1"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

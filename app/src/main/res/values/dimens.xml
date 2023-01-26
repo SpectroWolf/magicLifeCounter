@@ -22,4 +22,11 @@
     <dimen name="button_component_large_size_padding_vertical">16dp</dimen>
     <dimen name="button_component_large_size_padding_horizontal">24dp</dimen>
 
+    <dimen name="menu_component_size_dimensions">64dp</dimen>
+    <dimen name="menu_component_size_icon">32dp</dimen>
+    <dimen name="menu_component_size_padding_vertical">16dp</dimen>
+    <dimen name="menu_component_size_padding_horizontal">24dp</dimen>
+    <dimen name="menu_component_radius">80dp</dimen>
+
+
 </resources>

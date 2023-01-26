@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/buttonView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:foreground="@drawable/ripple_yellow"
+        android:minHeight="64dp"
+        android:paddingStart="@dimen/menu_component_size_padding_horizontal"
+        android:paddingTop="@dimen/menu_component_size_padding_vertical"
+        android:paddingEnd="@dimen/menu_component_size_padding_horizontal"
+        android:paddingBottom="@dimen/menu_component_size_padding_vertical"
+        app:cardBackgroundColor="@color/yellow"
+        app:cardCornerRadius="@dimen/menu_component_radius"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/resetIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/ic_reset_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/clockIcon"
+                app:layout_constraintEnd_toStartOf="@+id/closeIcon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/clockIcon"
+                app:layout_constraintTop_toTopOf="@+id/clockIcon" />
+
+            <ImageView
+                android:id="@+id/clockIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="13dp"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/ic_clock_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/resetIcon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/closeIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/ic_close_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/resetIcon"
+                app:layout_constraintEnd_toStartOf="@+id/diceIcon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/resetIcon"
+                app:layout_constraintTop_toTopOf="@+id/resetIcon" />
+
+            <ImageView
+                android:id="@+id/diceIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/ic_dice_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/closeIcon"
+                app:layout_constraintEnd_toStartOf="@+id/exitIcon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/closeIcon"
+                app:layout_constraintTop_toTopOf="@+id/closeIcon" />
+
+            <ImageView
+                android:id="@+id/exitIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/ic_exit_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/diceIcon"
+                app:layout_constraintEnd_toStartOf="@+id/menuIcon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/diceIcon"
+                app:layout_constraintTop_toTopOf="@+id/diceIcon" />
+
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/ic_menu_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/exitIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/exitIcon"
+                app:layout_constraintTop_toTopOf="@+id/exitIcon"
+                android:layout_margin="16dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</merge>
